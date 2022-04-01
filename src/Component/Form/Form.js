@@ -21,12 +21,12 @@ const Form = (props) => {
     } else {
         var {message, userData} = submitSignUp(name, password, displayName, imageUpload);
     }
-    if(userData == null) {
+    if(userData == "") {
         setError(message);
     } else {
         setUser(userData);
         setLoggedIn(true);
-        console.log("LOGG   ED INNNN")
+        console.log("LOGGED INNNN")
     }
   };
 
@@ -37,7 +37,8 @@ const Form = (props) => {
   
   useEffect(() => {
     if (loggedIn){
-       return navigate("/chat", user);
+        console.log(user)
+       return navigate("/chat?name="+user);
     }
     },[loggedIn]);
 

@@ -4,7 +4,7 @@ const userData = new Map();
 userData.set("ofek", {
   password: "1234",
   display: "ofekniss",
-  image: "user1.jpg",
+  image: "user1.png",
 });
 userData.set("tamir", {
   password: "12345",
@@ -19,37 +19,42 @@ userData.set("matan", {
 userData.set("elad", {
   password: "12345",
   display: "blair",
-  image: "user4.jpg",
+  image: "user4.png",
 });
 
 export function submitSignIn(name, password) {
     console.log("Signin");
   if(name == "" || password == ""){
-    return {message : errorMsg[1], userData : null}
+    return {message : errorMsg[1], userData : ""}
   }
   let data = userData.get(name);
-  console.log(data)
   if (data && data.password == password) {
     //login: 
-    return {message : errorMsg[0], userData : {name: name, display : data.display, image : data.image}};
+    return {message : errorMsg[0], userData : name};
 } else {
-    return {message : errorMsg[2], userData : null};
+    return {message : errorMsg[2], userData : ""};
   }
 }
 export function submitSignUp(name, password, nickName, image) {
-  console.log("SignUp");
-
   let regHasLetter = /[A-Z|a-z]/;
   let regHasNumber = /[0-9]/;
   let regLength = /^[\s\S]{5,18}$/;
   if(!regHasLetter.test(password) || !regHasNumber.test(password) || !regLength.test(password)){
-    return {message : errorMsg[3], userData : null};
+    return {message : errorMsg[3], userData : ""};
   }
   if(name == "" || password == ""||nickName =="" || image == false) {
-    return {message : errorMsg[1], userData : null}
+    return {message : errorMsg[1], userData : ""}
   }
   //login: 
-  return {message : errorMsg[0], userData : {name: name, display: nickName, image: image}}
+  return {message : errorMsg[0], userData : name}
+}
+
+export function getUserData(name){
+  let data = userData.get(name);
+  if (data) {
+    return {name: name, display: data.display, image: data.image};
+  }
+  return null
 }
 
 
