@@ -5,16 +5,29 @@
     position: relative;
 }
 
+.test {
+    flex-grow: 0
+}
+
 .contact-box{
-    max-height: 100%;
     overflow-y: scroll;
+    overflow: hidden;
+    flex-grow: 1;
+    position: relative;
 }
 
 .chat-box{
     padding-top: 20px;
 }
 
-.contacts{
+.contact-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
 }
+
 
 

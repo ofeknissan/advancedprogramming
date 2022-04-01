@@ -3,7 +3,7 @@ import "./UserDeatils.css"
 const UserDeatils = (props) => {
   return (
     <div class="d-flex bd-highlight align-items-center user-details-box">
-              <div class="p-2 user-img"><img src="../../../public/Images/user1.png"></img></div>
+              <div class="p-2 user-img"><img src={"/"+props.image}></img></div>
               <div class="p-2 bd-highlight">{props.children}</div>
               <div class="p-2 ms-auto bd-highlight">
                 <svg
