@@ -1,29 +1,34 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./Signup.css";
+import "../SignIn/SignIn.css";
+import Alert from "../Alert/Alert";
+import Form from "../Form/Form";
+import RegisterMessage from "../RegisterMessage/RegisterMessage.js";
 
-function signup() {
-    return (
-      <div className="App">
-        <div className="container">
-          <div className="row">
-              <h1>SignUp</h1>
-            </div>
+const Signup = () => {
+  return (
+    <div className="fullPage">
+      <video
+        playsInline="playsinline"
+        autoPlay="autoplay"
+        muted="muted"
+        loop="loop"
+      >
+        <source src="/videos/background-signup.mp4" type="video/mp4" />
+      </video>
+      <div className="signIn">
+        <div className="container form-container">
+          <div className="row mb-3">
+            <h1 className="text-light">Sign Up</h1>
           </div>
-          <div className="row">
-              <form>
-                <div className="mb-3">
-                  <label for="inputUsername" class="form-label">Username</label>
-                  <input type="text" className="form-control" id="inputUsername"/>
-                </div>
-                <div className="mb-3">
-                  <label for="inputPassword" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="inputPassword" />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-              </form>
+          <div className="row mb-5">
+            <Form signIn={false}/>
+            <RegisterMessage link = "/signin" startMessage = "Already registered? " endMessage = " to sign in" ></RegisterMessage>
+          </div>
+          </div>
         </div>
       </div>
-    );
-  }
-  
-  export default signup;
-  
+  );
+};
+
+export default Signup;
