@@ -4,7 +4,7 @@ const ContactDetails = (props) => {
   return (
     <div class="d-flex bd-highlight align-items-center ">
       <div class="p-2 user-img ">
-        <img src="https://cdn.pixabay.com/photo/2012/04/18/23/36/boy-38262_960_720.png"></img>
+        <img className="contactImage" src="https://cdn.pixabay.com/photo/2012/04/18/23/36/boy-38262_960_720.png"></img>
       </div>
       <div class="ms-5 Contact-message">
       <div class="bd-highlight Contact-Name">{props.name}</div>
