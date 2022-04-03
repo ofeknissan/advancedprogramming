@@ -5,9 +5,6 @@
     position: relative;
 }
 
-.test {
-    flex-grow: 0
-}
 
 .contact-box{
     overflow-y: scroll;
@@ -27,7 +24,8 @@
   overflow: auto;
 }
 
-.chat-section{
+.overflow-chat{
+    height: 0px;
 }
 
 .chat-text{
@@ -37,7 +35,3 @@
     flex-basis: auto;
 }
 
-.bf{
-    overflow: auto;
-
-}

@@ -21,6 +21,11 @@ userData.set("elad", {
   display: "blair",
   image: "user4.png",
 });
+userData.set("Neria", {
+  password: "12345",
+  display: "Ner",
+  image: "user4.png",
+});
 
 export function submitSignIn(name, password) {
     console.log("Signin");

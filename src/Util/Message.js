@@ -1,8 +1,5 @@
 class Message {
-
-    constructor(from, to, data, time, type) {
-      this.from = from;
-      this.to =  to;
+    constructor(data, time, type, isLeft) {
       this.data = data;
       this.type = type;
       this.time = time;

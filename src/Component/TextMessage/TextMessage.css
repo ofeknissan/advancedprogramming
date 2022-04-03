@@ -1,0 +1,23 @@
+.message-reciever{
+    background-color: green;
+    border-radius: 5px;
+    position: relative;
+    word-break:break-all;
+    color: white;
+}
+.message-sender{
+    background-color: black;
+    border-radius: 5px;
+    position: relative;
+    word-break:break-all;
+    color: white;
+}
+
+.left-point{
+    
+}
+
+.message-time{
+    color: white;
+    font-size: 10px;
+}
