@@ -3,7 +3,6 @@ import "./UserDeatils.css";
 import Modal from "../Modal/Modal.js";
 
 const UserDeatils = (props) => {
-  console.log(props.img);
   return (
     <div class="d-flex bd-highlight align-items-center user-details-box">
       <div class="p-2 user-img-div">
@@ -26,7 +25,7 @@ const UserDeatils = (props) => {
           />
         </svg>
       </button>
-      <Modal></Modal>
+      <Modal onsubmit={props.onsubmit}></Modal>
     </div>
   );
 };

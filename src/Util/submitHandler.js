@@ -9,7 +9,7 @@ userData.set("ofek", {
 userData.set("tamir", {
   password: "12345",
   display: "tamir12",
-  image: "user2.jpg",
+  image: "user2.png",
 });
 userData.set("matan", {
   password: "11",
