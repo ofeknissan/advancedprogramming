@@ -18,7 +18,7 @@ function ContactModal(props) {
     <>
       <button
         onClick={()=>{setContact("");handleShow();}}
-        className="p-2 me-3 ms-auto btn btn-outline-dark btn-modal"
+        className="p-2 me-3 ms-auto btn btn-light btn-modal"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

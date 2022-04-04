@@ -34,6 +34,7 @@ const Form = (props) => {
 
   const fileHandler = (e) => {
     e.preventDefault();
+    console.log(e.target.files[0])
     setFile(URL.createObjectURL(e.target.files[0]));
   }
 

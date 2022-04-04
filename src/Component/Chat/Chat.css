@@ -1,6 +1,6 @@
 .full-chat-box{
     border: solid;
-    border-color: rgb(255, 0, 0);
+    border-color: rgb(0, 0, 0);
     height: 100vh;
     position: relative;
 }
@@ -35,3 +35,28 @@
     flex-basis: auto;
 }
 
+.chat-bg{
+    background-color: rgb(22, 20, 20);
+}
+
+.contact-char-bg{
+    background-image: url("../../../public/Images/chat-background.png");
+    background-color: #3f3838;
+}
+
+html {
+    height: 100%
+}
+video {
+    position: absolute;
+    z-index: -1;
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  
+}

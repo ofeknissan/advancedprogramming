@@ -3,7 +3,7 @@ import Message from "./Message";
 const contacts = [
     { username: "ofek", contacts:{
          "tamir": [new Message("Hello!","12:50","text",true)],
-         "matan": [new Message("Hello :)!","12:30","text",true)]
+         "matan": [new Message("Hello  ma kore:)!","12:30","text",true)]
         }},
     { username: "tamir", contacts:{
          "ofek": [new Message("Hello!","12:50","text",false)],
@@ -16,7 +16,8 @@ const contacts = [
         "ofek": [new Message("Hello :)!","12:30","text",false)],
         "tamir": [new Message("Hello!","12:50","text", true), new Message("Hello there!!","12:55","text",false)],
         "elad": [new Message("Hello!","12:50","text", false), new Message("Hello there!!","12:55","text",false), new Message("AAAAAAA!","15:00","text", true)]
-    }}];
+    }},
+    {username: "Neria", contacts:{}}];
 
  export function getContactsByName (name)  {
     for (const element of contacts) {

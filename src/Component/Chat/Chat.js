@@ -12,14 +12,14 @@ const Chat = () => {
   
   let params = new URLSearchParams(document.location.search);
   const myName = params.get("name");
+  const [currentContact, setCurrentContact] = useState(null)
   //const myName = "matan";
   const [contacts, setContacts] = useState(getContactsByName(myName))
   const userData = getUserData(myName);
   let keys = Object.keys(contacts)
-  console.log(contacts);
   //TODO - when adding contacts should contact be a registered account from hardcoded list?
   const contactList = keys.map((contact, key)=>{
-    return <ContactDetails name={contact} img={getUserData(contact).image} key={key} />
+    return <ContactDetails name={contact} isClicked={currentContact === contact} onClick={() => {console.log(contact);setCurrentContact(contact)}} img={getUserData(contact).image} key={key} />
   });
 
   function onSubmit(username){
@@ -32,13 +32,29 @@ const Chat = () => {
     temp[username] = [];
     setContacts({...temp});
   }
+
+  function addMessage(message,format) {
+    const todayDate = new Date();
+    let hour = todayDate.getHours();
+    let minute = todayDate.getMinutes();
+    let time
+    if (minute < 10) {
+      minute = "0" + String(minute);
+    }
+    if(hour < 10) {
+      hour = "0" + String(hour);
+    }
+    time = String(hour) + ":" + String(minute)
+    contacts[currentContact].push(new Message(message, time, format, false));
+    setContacts({...contacts});
+  }
   return (
-    <div className="test">
+    <div className="chat-bg">
       <div className="container full-chat-box">
         <div className="row h-100">
           <div className="col-5 p-0">
             <div className="d-flex flex-column h-100">
-                <UserDeatils onsubmit={onSubmit} img={userData.image}> {myName} </UserDeatils>
+                <UserDeatils onsubmit={onSubmit}img={userData.image}> {myName} </UserDeatils>
               <div className="contact-box">
                 <div className="contact-content">
                   {contactList}
@@ -46,10 +62,10 @@ const Chat = () => {
               </div>
             </div>
           </div>
-          <div className="col-7 flex">
-          <div className="d-flex flex-column  h-100">
-            <ContactChat contactId=""/>
-            <ToolBox/>
+          <div className="col-7 p-0 flex contact-char-bg">
+          <div className="d-flex flex-column h-100">
+            <ContactChat isDefault={currentContact === null} messages={contacts[currentContact]}  currentContact={currentContact}/>
+            {!(currentContact=== null) && <ToolBox addMessage={addMessage}/>}
           </div>
           </div>
         </div>

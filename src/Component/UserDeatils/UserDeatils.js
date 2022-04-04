@@ -4,9 +4,9 @@ import ContactModal from "../ContactModal/ContactModal.js";
 
 const UserDeatils = (props) => {
   return (
-    <div className="d-flex bd-highlight align-items-center user-details-box">
+    <div className="d-flex text-light bd-highlight align-items-center user-details-box">
       <div className="p-2 user-img-div">
-        <img className="user-img" src={"/Images/" + props.img}></img>
+        <img className="user-img" src={props.img}></img>
       </div>
       <div className="p-2 bd-highlight">{props.children}</div>
       <ContactModal onsubmit={props.onsubmit}></ContactModal>

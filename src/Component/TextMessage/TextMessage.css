@@ -3,10 +3,17 @@
     border-radius: 5px;
     position: relative;
     word-break:break-all;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .message-sender{
-    background-color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    position: relative;
+    word-break:break-all;
+    color: rgb(0, 0, 0);
+}
+
+.message{
     border-radius: 5px;
     position: relative;
     word-break:break-all;
@@ -18,6 +25,10 @@
 }
 
 .message-time{
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 10px;
+}
+
+.bubble-wrapper{
+    max-width: 50%;
 }

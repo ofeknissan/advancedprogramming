@@ -5,27 +5,27 @@ const userData = new Map();
 userData.set("ofek", {
   password: "1234",
   display: "ofekniss",
-  image: "user1.png",
+  image: "./Images/user1.png",
 });
 userData.set("tamir", {
   password: "12345",
   display: "tamir12",
-  image: "user2.png",
+  image: "./Images/user2.png",
 });
 userData.set("matan", {
   password: "11",
   display: "123123",
-  image: "user3.jpg",
+  image: "./Images/user3.jpg",
 });
 userData.set("elad", {
   password: "12345",
   display: "blair",
-  image: "user4.png",
+  image: "./Images/user4.png",
 });
 userData.set("Neria", {
   password: "12345",
   display: "Ner",
-  image: "user4.png",
+  image: "./Images/user4.png",
 });
 
 export function submitSignIn(name, password) {

@@ -3,6 +3,7 @@ class Message {
       this.data = data;
       this.type = type;
       this.time = time;
+      this.isLeft = isLeft;
     }
   }
 export default Message;
