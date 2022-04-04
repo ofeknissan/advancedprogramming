@@ -1,3 +1,4 @@
+import {addNewToContacts} from "./userMessages";
 
 const errorMsg = ["", "Please fill all required fields!", "Wrong username or password!", "Invalid password"]
 const userData = new Map();
@@ -47,10 +48,12 @@ export function submitSignUp(name, password, nickName, image) {
   if(!regHasLetter.test(password) || !regHasNumber.test(password) || !regLength.test(password)){
     return {message : errorMsg[3], userData : ""};
   }
-  if(name == "" || password == ""||nickName =="" || image == false) {
+  if(name == "" || password == ""||nickName =="" || image == null) {
     return {message : errorMsg[1], userData : ""}
   }
-  //login: 
+  //login:
+  userData.set(name, {password: password, display: nickName, image: image})
+  addNewToContacts(name)
   return {message : errorMsg[0], userData : name}
 }
 

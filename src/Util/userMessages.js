@@ -24,4 +24,9 @@ const contacts = [
             return element.contacts;
         }
       }
-}
+    }
+    export function addNewToContacts(username){
+        contacts.push({username: username, contacts:{}})
+        console.log(contacts)
+    }
+

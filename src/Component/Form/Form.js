@@ -2,45 +2,47 @@ import React, { useState, useEffect } from "react";
 import { submitSignIn, submitSignUp } from "../../Util/submitHandler";
 import Alert from "../Alert/Alert";
 import "./Form.css"
-import {useNavigate} from"react-router"
+import { useNavigate } from "react-router"
 import AuthPop from "../AuthPop/AuthPop";
+import SignupAdditionToForm from "../SignupAdditionToFrom/SignupAdditionToForm";
 
 const Form = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setdisplayName] = useState("");
   const [imageUpload, setImageUpload] = useState(false)
+  const [file, setFile] = useState(null);
   const [error, setError] = useState("");
-  const [loggedIn,setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   let navigate = useNavigate();
   const onSubmit = (event) => {
     event.preventDefault();
     if (props.signIn) {
-        var {message, userData} = submitSignIn(name, password);
+      var { message, userData } = submitSignIn(name, password);
     } else {
-        var {message, userData} = submitSignUp(name, password, displayName, imageUpload);
+      var { message, userData } = submitSignUp(name, password, displayName, file);
     }
-    if(userData == "") {
-        setError(message);
+    if (userData == "") {
+      setError(message);
     } else {
-        setUser(userData);
-        setLoggedIn(true);
-        console.log("LOGGED INNNN")
+      setUser(userData);
+      setLoggedIn(true);
+      console.log("LOGGED INNNN")
     }
   };
 
-  const fileHandler = (event) => {
-    event.preventDefault();
-    setImageUpload(true)
+  const fileHandler = (e) => {
+    e.preventDefault();
+    setFile(URL.createObjectURL(e.target.files[0]));
   }
-  
+
   useEffect(() => {
-    if (loggedIn){
-        console.log(user)
-       return navigate("/chat?name="+user);
+    if (loggedIn) {
+      console.log(user)
+      return navigate("/chat?name=" + user);
     }
-    },[loggedIn]);
+  }, [loggedIn]);
 
   return (
     <>
@@ -81,39 +83,9 @@ const Form = (props) => {
             placeholder="Password"
           />
         </div>
-        {!props.signIn && (
-          <>
-            <div className="mb-2">
-              <label
-                htmlFor="displayName"
-                className="form-label text-light fs-5"
-              >
-                Display Name
-              </label>
-              <input
-                type="text"
-                value={displayName}
-                onChange={(e) => {
-                  setdisplayName(e.target.value);
-                }}
-                className="form-control"
-                id="displayName"
-                placeholder="Display Name"
-              />
-            </div>
-            <label htmlFor="imageInput" className="form-label text-light fs-5">
-              image
-            </label>
-            <div class="input-group mb-2">
-              <input
-                id="imageInput"
-                type="file"
-                onChange={fileHandler}
-                className={`form-control ${imageUpload && "image-input"}`}
-              />
-            </div>
-          </>
-        )}
+        {!props.signIn && (<SignupAdditionToForm
+            displayName={displayName} setdisplayName={setdisplayName} onImage={fileHandler}>
+          </SignupAdditionToForm>)}
         <div className="button-input">
           <button
             type="submit"

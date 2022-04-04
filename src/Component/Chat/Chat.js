@@ -9,11 +9,10 @@ import ContactChat from "../ContactChat/ContactChat";
 import  {getContactsByName} from "../../Util/userMessages"
 
 const Chat = () => {
-  /*
+  
   let params = new URLSearchParams(document.location.search);
   const myName = params.get("name");
-  */
-  const myName = "matan";
+  //const myName = "matan";
   const [contacts, setContacts] = useState(getContactsByName(myName))
   const userData = getUserData(myName);
   let keys = Object.keys(contacts)
@@ -23,21 +22,23 @@ const Chat = () => {
     return <ContactDetails name={contact} img={getUserData(contact).image} key={key} />
   });
 
+  function onSubmit(username){
+    //TODO- maybe check if new contact exists. and alert if error
+    if (username in contacts || myName === username) {
+      console.log("nooo")
+      return;
+    }
+    let temp = contacts;
+    temp[username] = [];
+    setContacts({...temp});
+  }
   return (
     <div className="test">
       <div className="container full-chat-box">
         <div className="row h-100">
           <div className="col-5 p-0">
             <div className="d-flex flex-column h-100">
-                <UserDeatils onsubmit={(username)=>{
-                  if (username in contacts || myName === username) {
-                    console.log("nooo")
-                    return;
-                  }
-                  let temp = contacts;
-                  temp[username] = [];
-                  setContacts({...temp});
-                }} img={userData.image}> {myName} </UserDeatils>
+                <UserDeatils onsubmit={onSubmit} img={userData.image}> {myName} </UserDeatils>
               <div className="contact-box">
                 <div className="contact-content">
                   {contactList}
@@ -56,17 +57,5 @@ const Chat = () => {
     </div>
   );
 };
-
-function addNewContact(username, contacts ,setter){
-  //TODO check if username is in userdata
-  for (const element of contacts) {
-    if(element.username === username) {
-        return
-    }
-  }
-  const temp = contacts;
-  temp.push(username);
-  setter(temp);
-}
 
 export default Chat;
