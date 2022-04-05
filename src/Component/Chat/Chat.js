@@ -52,7 +52,7 @@ const Chat = () => {
     <div className="chat-bg">
       <div className="container full-chat-box">
         <div className="row h-100">
-          <div className="col-5 p-0">
+          <div className="col-5 p-0 contact-bg">
             <div className="d-flex flex-column h-100">
                 <UserDeatils onsubmit={onSubmit}img={userData.image}> {myName} </UserDeatils>
               <div className="contact-box">
