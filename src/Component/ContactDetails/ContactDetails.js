@@ -2,7 +2,7 @@ import React from 'react'
 import "./ContactDetails.css"
 const ContactDetails = (props) => {
   return (
-    <div onClick={props.onClick} class={`d-flex text-light bd-highlight align-items-center contact-details ${props.isClicked && 'contact-clicked'}`}>
+    <div onClick={()=>{props.onClick(props.name,props.img)}} class={`d-flex text-light bd-highlight align-items-center contact-details ${props.isClicked && 'contact-clicked'}`}>
       <div class="p-2 user-img ">
         <img className="contactImage" src={props.img}></img>
       </div>
