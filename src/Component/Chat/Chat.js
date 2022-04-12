@@ -20,12 +20,12 @@ const Chat = () => {
   function onSubmit(username){
     //TODO- maybe check if new contact exists. and alert if error
     if (username in contacts || myName === username || !(isExist(username))) {
-      console.log("failed")
-      return;
+      return false;
     }
     let temp = contacts;
     temp[username] = [];
     setContacts({...temp});
+    return true;
   }
   
   const last_message = (message) => {

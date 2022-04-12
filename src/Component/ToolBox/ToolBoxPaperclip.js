@@ -4,18 +4,22 @@ import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import PaperclipIcon from "../PaperclipIcon.js";
 import VoiceModal from "../VoiceModal/VoiceModal";
+import ImageModal from "../ImageModal/ImageModal";
 
 
 const ToolBoxPaperclip = (props) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showAudioModal, setshowAudioModal] = useState(false);
+  const handleCloseAudioModal = () => setshowAudioModal(false);
+  const handleShowAudioModal = () => setshowAudioModal(true);
+  const [showImageModal, setshowImageModal] = useState(false);
+  const handleCloseImageModal = () => setshowImageModal(false);
+  const handleShowImageModal = () => setshowImageModal(true);
   function onMenuSelect(eventKey) {
     console.log(eventKey)
     if(eventKey == 1) {
-      handleShow();
+      handleShowAudioModal();
     } else if(eventKey==2) {
-        //IMAGE
+      handleShowImageModal();
     }
   }
 
@@ -61,12 +65,10 @@ const ToolBoxPaperclip = (props) => {
         </Dropdown.Item>
       </DropdownButton>
       </Dropdown>
-      <VoiceModal addMessage={props.addMessage} show={show} handleShow={handleShow} handleClose={handleClose}></VoiceModal>
+      <VoiceModal addMessage={props.addMessage} show={showAudioModal} handleShow={handleShowAudioModal} handleClose={handleCloseAudioModal}/>
+      <ImageModal addMessage={props.addMessage} show={showImageModal} handleShow={handleShowImageModal} handleClose={handleCloseImageModal}/>
     </div>
   );
 };
 
-function handleSuccess(stream){
-
-}
 export default ToolBoxPaperclip;

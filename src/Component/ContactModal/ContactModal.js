@@ -4,14 +4,18 @@ import Modal from "react-bootstrap/Modal";
 
 function ContactModal(props) {
   const [show, setShow] = useState(false);
+  const [error, setError] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [contactName, setContact] = useState("");
   const onSubmit = (event) => {
     event.preventDefault();
-    if (contactName != "") {
-      props.onsubmit(contactName);
+      const flag = props.onsubmit(contactName);
+      if(flag){
       handleClose();
+      setError(false);
+      } else {
+        setError(true);
     }
   };
   return (
@@ -55,6 +59,7 @@ function ContactModal(props) {
                   setContact(e.target.value);
                 }}
               />
+              {error && <span className="error-contact">Error! Contact cannot be added.</span>}
             </div>
           </Modal.Body>
           <Modal.Footer>

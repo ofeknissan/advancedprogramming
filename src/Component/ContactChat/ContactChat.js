@@ -4,6 +4,7 @@ import VoiceMessage from "../VoiceMessage/VoiceMessage";
 
 import "./ContactChat.css";
 import CurrentContactDetails from "../CurrentContactDetails/CurrentContactDetails";
+import ImageMessage from "../ImageMessage/ImageMessage";
 const ContactChat = (props) => {
   const contactId = props.contactId;
   const messages = useRef(null);
@@ -41,6 +42,12 @@ const ContactChat = (props) => {
                 <VoiceMessage time={message.time} isSender={message.isLeft}>
                   {message.data}
                 </VoiceMessage>
+              );
+            } else if(message.type == "image") {
+              return (
+                <ImageMessage time={message.time} isSender={message.isLeft}>
+                  {message.data}
+                </ImageMessage>
               );
             }
           })}
