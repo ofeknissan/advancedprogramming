@@ -30,7 +30,7 @@ const EmojiPicker = (props) => {
             <Dropdown.Item eventKey="1">
               <div className='d-flex flex-wrap emoji-desk'>
                 {emojis.map((emoji) => {
-                  return <div onClick={(e)=>{e.preventDefault(); props.message.current.value+=emoji;}} className='ms-3 specific-emoji'>{emoji}</div>
+                  return <div onClick={(e)=>{e.preventDefault(); props.message.current.value+=emoji;}} className='p-2 specific-emoji'>{emoji}</div>
                 })}
               </div>
             </Dropdown.Item>

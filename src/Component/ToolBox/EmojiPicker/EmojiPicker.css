@@ -3,7 +3,9 @@
     width: 500px;
     overflow: auto;
     cursor: auto;
+    -webkit-tap-highlight-color: transparent;
 }
+
 
 @media screen and (max-width: 925px) {
     .emoji-desk {

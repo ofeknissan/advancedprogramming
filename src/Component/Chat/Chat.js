@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getUserData } from "../../Util/submitHandler";
+import React, { useRef, useState } from "react";
+import { getUserData, isExist } from "../../Util/submitHandler";
 import Message from "../../Util/Message";
 import "./Chat.css";
 import UserDeatils from "../UserDeatils/UserDeatils";
@@ -7,7 +7,6 @@ import ContactDetails from "../ContactDetails/ContactDetails";
 import ToolBox from "../ToolBox/ToolBox";
 import ContactChat from "../ContactChat/ContactChat";
 import  {getContactsByName} from "../../Util/userMessages"
-import VoiceModal from "../SpecialMessageModal/VoiceModal/VoiceModal";
 
 
 const Chat = () => {
@@ -18,20 +17,24 @@ const Chat = () => {
   const [contacts, setContacts] = useState(getContactsByName(myName))
   const userData = getUserData(myName);
   let keys = Object.keys(contacts)
-  //TODO - when adding contacts should contact be a registered account from hardcoded list?
-  const contactList = keys.map((contact, key)=>{
-    console.log(key)
-    return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact,img) => {setCurrentContact({contact: contact, img: img})}} img={getUserData(contact).image} key={key} />
-  });
   function onSubmit(username){
     //TODO- maybe check if new contact exists. and alert if error
-    if (username in contacts || myName === username) {
-      console.log("nooo")
+    if (username in contacts || myName === username || !(isExist(username))) {
+      console.log("failed")
       return;
     }
     let temp = contacts;
     temp[username] = [];
     setContacts({...temp});
+  }
+  
+  const last_message = (message) => {
+    if(message.type == 'voice') {
+      return 'Voice Message';
+    } else if (message.type =='image') {
+      return 'Image';
+    }
+    return message.data;
   }
 
   function addMessage(message,format) {
@@ -46,9 +49,19 @@ const Chat = () => {
       hour = "0" + String(hour);
     }
     time = String(hour) + ":" + String(minute)
-    contacts[currentContact.contact].push(new Message(message, time, format, false));
+    contacts[currentContact.contact].push(new Message(message, time, format, false, Math.floor(todayDate.getTime()/1000)));
     setContacts({...contacts});
   }
+
+    //TODO - when adding contacts should contact be a registered account from hardcoded list?
+  const contactList = keys.map((contact, key) => {
+    try{
+    return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact, img) => { setCurrentContact({ contact: contact, img: img }) }} img={getUserData(contact).image} key={key} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
+    }
+    catch(error) {
+      return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact, img) => { setCurrentContact({ contact: contact, img: img }) }} img={getUserData(contact).image} key={key} time={null}>{''}</ContactDetails>
+    }
+  });
   return (
     <div className="chat-bg">
       <div className="container-fluid full-chat-box">
@@ -65,8 +78,8 @@ const Chat = () => {
           </div>
           <div className="col-7 p-0 flex contact-char-bg">
           <div className="d-flex flex-column h-100">
-            <ContactChat isDefault={currentContact.contact === ""} messages={contacts[currentContact.contact]} currentContact={currentContact}/>
-            {!(currentContact.contact === "") && <ToolBox addMessage={addMessage}/>}
+            <ContactChat  isDefault={currentContact.contact === ""} messages={contacts[currentContact.contact]} currentContact={currentContact}/>
+            {!(currentContact.contact === "") && <ToolBox  addMessage={addMessage}/>}
           </div>
           </div>
         </div>

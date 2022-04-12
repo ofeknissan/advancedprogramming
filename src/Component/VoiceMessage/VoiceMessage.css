@@ -1,0 +1,28 @@
+.Vmessage-reciever{
+    background-color: green;
+    border-radius: 20px;
+    position: relative;
+    word-break:break-all;
+    color: rgb(0, 0, 0);
+}
+.Vmessage-sender{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    position: relative;
+    word-break:break-all;
+    color: rgb(0, 0, 0);
+}
+
+
+.left-point{
+    
+}
+
+.message-time{
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+}
+
+.bubble-wrapper{
+    max-width: 50%;
+}

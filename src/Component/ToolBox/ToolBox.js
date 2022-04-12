@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useRef } from "react";
 import EmojiPicker from "./EmojiPicker/EmojiPicker";
 import "./Toolbox.css"
 import ToolBoxPaperclip from "./ToolBoxPaperclip";
@@ -8,7 +8,7 @@ const ToolBox = (props) => {
   return (
     <div className="d-flex flex-row align-items-center toolbox">
       <EmojiPicker message={message}/>
-      <ToolBoxPaperclip/>
+      <ToolBoxPaperclip addMessage={props.addMessage}/>
       <div className="p-2 flex-grow-1 ">
         <form onSubmit={(e) => {
           e.preventDefault();
@@ -16,8 +16,8 @@ const ToolBox = (props) => {
           if(message.current.value === "") {
             return;
           }
-          console.log("skipped?")
           props.addMessage(message.current.value, "text");
+          //element.scrollTop = element.scrollHeight;
           message.current.value = "";
         }}>
         <div className="input-group">

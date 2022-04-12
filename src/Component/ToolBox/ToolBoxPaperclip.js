@@ -3,19 +3,17 @@ import "./Toolbox.css";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import PaperclipIcon from "../PaperclipIcon.js";
-import VoiceModal from "../SpecialMessageModal/VoiceModal/VoiceModal";
+import VoiceModal from "../VoiceModal/VoiceModal";
 
 
 const ToolBoxPaperclip = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   function onMenuSelect(eventKey) {
     console.log(eventKey)
     if(eventKey == 1) {
       handleShow();
-      //navigator.mediaDevices.getUserMedia({audio: true, video: false}).then(handleSuccess).catch((error)=>{console.log(error)})
     } else if(eventKey==2) {
         //IMAGE
     }
@@ -63,7 +61,7 @@ const ToolBoxPaperclip = (props) => {
         </Dropdown.Item>
       </DropdownButton>
       </Dropdown>
-      <VoiceModal show={show} handleShow={handleShow} handleClose={handleClose}></VoiceModal>
+      <VoiceModal addMessage={props.addMessage} show={show} handleShow={handleShow} handleClose={handleClose}></VoiceModal>
     </div>
   );
 };
