@@ -65,4 +65,8 @@ export function getUserData(name){
   return null
 }
 
+export function isExist(username) {
+  return userData.has(username);
+}
+
 
