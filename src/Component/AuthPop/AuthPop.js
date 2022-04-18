@@ -9,7 +9,7 @@ const AuthPop = () => {
         width="20"
         height="20"
         fill="currentColor"
-        class="bi bi-info-circle questionMarkIcon"
+        className="bi bi-info-circle questionMarkIcon"
         viewBox="0 0 16 18"
         onMouseOut={(e) => {
           e.preventDefault();

@@ -12,7 +12,7 @@ const SignIn = () => {
   };
   return (
     <div className="fullPage">
-      <video
+      <video className="signInVideo"
         playsInline="playsinline"
         autoPlay="autoplay"
         muted="muted"

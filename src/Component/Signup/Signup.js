@@ -8,7 +8,7 @@ import RegisterMessage from "../RegisterMessage/RegisterMessage.js";
 const Signup = () => {
   return (
     <div className="fullPage">
-      <video
+      <video className="signUpVideo"
         playsInline="playsinline"
         autoPlay="autoplay"
         muted="muted"

@@ -25,7 +25,7 @@ const SignupAdditionToForm = (props) => {
             <label htmlFor="imageInput" className="form-label text-light fs-5">
                 image
             </label>
-            <div class="input-group mb-2">
+            <div className="input-group mb-2">
                 <input
                     id="imageInput"
                     type="file"

@@ -9,17 +9,15 @@ const EmojiPicker = (props) => {
       <div className="ms-2">
         <Dropdown>
           <DropdownButton
-            //as={ButtonGroup}
             drop="up"
             variant="light my-dropdown-toggle"
-            menuVariant="style"
             title={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="bi bi-emoji-smile"
+                className="bi bi-emoji-smile"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -29,8 +27,8 @@ const EmojiPicker = (props) => {
           >
             <Dropdown.Item eventKey="1">
               <div className='d-flex flex-wrap emoji-desk'>
-                {emojis.map((emoji) => {
-                  return <div onClick={(e)=>{e.preventDefault(); props.message.current.value+=emoji;}} className='p-2 specific-emoji'>{emoji}</div>
+                {emojis.map((emoji, key) => {
+                  return <div onClick={(e)=>{e.preventDefault(); props.message.current.value+=emoji;}} className='p-2 specific-emoji' key={key}>{emoji}</div>
                 })}
               </div>
             </Dropdown.Item>

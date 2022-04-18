@@ -6,7 +6,7 @@
     color: white;
 }
 
-.dropdown-menu-style{
+.dropdown-menu{
     min-width: 0%;
     transform: translate(-2px, -50px) !important; 
 }

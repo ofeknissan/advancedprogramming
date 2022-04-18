@@ -14,9 +14,24 @@
 }
 
 
-.left-point{
-    
+.audio-message{
+    width: 300px;
 }
+
+@media screen and (max-width: 925px) {
+    .audio-message {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 623px) {
+    .audio-message {
+        width: 200px;
+    }
+}
+
+
+
 
 .message-time{
     color: rgb(0, 0, 0);

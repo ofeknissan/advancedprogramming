@@ -15,15 +15,15 @@ const CurrentContactDetails = (props) => {
           <div className="p-2 bd-highlight">{props.children}</div>
         </div>
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content modal-current-contact">
-              <div class="modal-body"><center><img src={props.img} className='modal-img'/></center></div>
+          <div className="modal-dialog">
+            <div className="modal-content modal-current-contact">
+              <div className="modal-body"><center><img src={props.img} className='modal-img'/></center></div>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import {addNewToContacts} from "./userMessages";
 
-const errorMsg = ["", "Please fill all required fields!", "Wrong username or password!", "Invalid password"]
+const errorMsg = ["", "Please fill all required fields!", "Wrong username or password!", "Invalid password!", "Username already taken!"]
 const userData = new Map();
 userData.set("ofek", {
   password: "1234",
@@ -50,6 +50,9 @@ export function submitSignUp(name, password, nickName, image) {
   }
   if(name == "" || password == ""||nickName =="" || image == null) {
     return {message : errorMsg[1], userData : ""}
+  }
+  if(userData.has(name)){
+    return {message : errorMsg[4], userData : ""}
   }
   //login:
   userData.set(name, {password: password, display: nickName, image: image})

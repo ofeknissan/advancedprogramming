@@ -7,16 +7,20 @@ import ContactDetails from "../ContactDetails/ContactDetails";
 import ToolBox from "../ToolBox/ToolBox";
 import ContactChat from "../ContactChat/ContactChat";
 import  {getContactsByName} from "../../Util/userMessages"
+import { forEach } from "../ToolBox/EmojiPicker/Emojis";
 
 
 const Chat = () => {
+  //get params from URL
   let params = new URLSearchParams(document.location.search);
   const myName = params.get("name");
+
   const [currentContact, setCurrentContact] = useState({contact:"",img: ""})
   //const myName = "matan";
   const [contacts, setContacts] = useState(getContactsByName(myName))
+  const [contactsList, setContactsList] = useState(contacts);
   const userData = getUserData(myName);
-  let keys = Object.keys(contacts)
+  let keys = Object.keys(contactsList)
   function onSubmit(username){
     //TODO- maybe check if new contact exists. and alert if error
     if (username in contacts || myName === username || !(isExist(username))) {
@@ -32,7 +36,11 @@ const Chat = () => {
     if(message.type == 'voice') {
       return 'Voice Message';
     } else if (message.type =='image') {
-      return 'Image';
+      return 'Image Message';
+    } else if (message.type =='video') {
+      return 'Video Message';
+    } else if (message.type =='file') {
+      return 'File Message';
     }
     return message.data;
   }
@@ -62,25 +70,54 @@ const Chat = () => {
       return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact, img) => { setCurrentContact({ contact: contact, img: img }) }} img={getUserData(contact).image} key={key} time={null}>{''}</ContactDetails>
     }
   });
+
+  const doSearch = (e) => {
+    let contactName = Object.keys(contacts);
+    contactName = contactName.filter(contact => contact.indexOf(e.target.value) == 0);
+    let specificContacts={};
+    contactName.forEach(item => {
+      specificContacts[item] = contacts[item];
+    })
+    setContactsList(specificContacts)
+  }
+  
   return (
     <div className="chat-bg">
       <div className="container-fluid full-chat-box">
         <div className="row h-100">
           <div className="col-5 p-0 contact-bg">
             <div className="d-flex flex-column h-100">
-                <UserDeatils onsubmit={onSubmit}img={userData.image}> {myName} </UserDeatils>
+              <UserDeatils onsubmit={onSubmit} img={userData.image}>
+                {" "}
+                {myName}{" "}
+              </UserDeatils>
+              <div className="searchBar">
+                  <form class="form-inline">
+                    <input
+                      className="form-control mr-sm-2 search-bar"
+                      type="search"
+                      placeholder="Search Contact"
+                      aria-label="Search"
+                      onChange={doSearch}
+                    />
+                  </form>
+              </div>
               <div className="contact-box">
-                <div className="contact-content">
-                  {contactList}
-                </div>
+                <div className="contact-content">{contactList}</div>
               </div>
             </div>
           </div>
           <div className="col-7 p-0 flex contact-char-bg">
-          <div className="d-flex flex-column h-100">
-            <ContactChat  isDefault={currentContact.contact === ""} messages={contacts[currentContact.contact]} currentContact={currentContact}/>
-            {!(currentContact.contact === "") && <ToolBox  addMessage={addMessage}/>}
-          </div>
+            <div className="d-flex flex-column h-100">
+              <ContactChat
+                isDefault={currentContact.contact === ""}
+                messages={contacts[currentContact.contact]}
+                currentContact={currentContact}
+              />
+              {!(currentContact.contact === "") && (
+                <ToolBox addMessage={addMessage} />
+              )}
+            </div>
           </div>
         </div>
       </div>

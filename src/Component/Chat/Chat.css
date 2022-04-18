@@ -47,7 +47,7 @@
 html {
     height: 100%
 }
-video {
+.video123123 {
     position: absolute;
     z-index: -1;
     width: 100% !important;
@@ -58,9 +58,20 @@ video {
     left: 0;
     right: 0;
     overflow: hidden;
-  
+
 }
 
 .contact-bg {
     background-color: rgb(33,33,33);
+}
+
+.search-bar {
+    background-color: rgb(33,33,33);
+    color: white;
+    border-radius: 10px;
+}
+
+.search-bar:focus {
+    background-color: rgb(33,33,33);
+    color: white;
 }

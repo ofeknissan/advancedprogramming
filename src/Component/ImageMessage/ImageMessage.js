@@ -3,7 +3,7 @@ import "./ImageMessage.css";
 function stringGen(len) {
     var text = "";
     
-    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+    var charset = "abcdefghijklmnopqrstuvwxyz";
     
     for (var i = 0; i < len; i++)
       text += charset.charAt(Math.floor(Math.random() * charset.length));
@@ -32,15 +32,15 @@ const ImageMessage = (props) => {
           </div>
         </div>
         <div
-          class="modal fade"
+          className="modal fade"
           id={id}
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content modal-current-contact">
-              <div class="modal-body">
+          <div className="modal-dialog">
+            <div className="modal-content modal-current-contact">
+              <div className="modal-body">
                 <center>
                   <img src={props.children} className="message-img" />
                 </center>
