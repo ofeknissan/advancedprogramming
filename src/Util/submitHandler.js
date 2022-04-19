@@ -14,7 +14,7 @@ userData.set("tamir", {
 });
 userData.set("matan", {
   password: "11",
-  display: "123123",
+  display: "matan",
   image: "./Images/user3.jpg",
 });
 userData.set("elad", {
@@ -27,7 +27,26 @@ userData.set("Neria", {
   display: "Ner",
   image: "./Images/user4.png",
 });
-
+userData.set("yossi", {
+  password: "12345",
+  display: "yos2",
+  image: "./Images/user4.png",
+});
+userData.set("dina", {
+  password: "12345",
+  display: "dina",
+  image: "./Images/user4.png",
+});
+userData.set("roni", {
+  password: "123",
+  display: "Roro",
+  image: "./Images/user4.png",
+});
+userData.set("Nellbi", {
+  password: "123",
+  display: "No",
+  image: "./Images/user1.png",
+});
 export function submitSignIn(name, password) {
     console.log("Signin");
   if(name == "" || password == ""){
