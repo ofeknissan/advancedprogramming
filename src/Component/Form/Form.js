@@ -28,7 +28,6 @@ const Form = (props) => {
     } else {
       setUser(userData);
       setLoggedIn(true);
-      console.log("LOGGED INNNN")
     }
   };
 

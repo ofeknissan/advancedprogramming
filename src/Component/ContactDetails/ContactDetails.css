@@ -1,10 +1,11 @@
 .Contact-Name{
     font-weight: bold;
+    font-size: 118%;
 }
 
 .contactImage{
     float: left;
-    max-width: 40px;
+    max-width: 53px;
     width: 100%;
     border-radius: 50%;
 }
@@ -18,6 +19,10 @@
 .contact-clicked {
     background-color: rgb(56,56,56);
 
+}
+
+.contact-details {
+    height: 80px;
 }
 
 .contact-icon{
@@ -67,7 +72,7 @@
     float: right;
     margin-right: 4px;
     margin-top: 3px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 @media screen and (max-width: 1161) {

@@ -15,20 +15,25 @@ const Chat = () => {
   let params = new URLSearchParams(document.location.search);
   const myName = params.get("name");
 
-  const [currentContact, setCurrentContact] = useState({contact:"",img: ""})
+  const [currentContact, setCurrentContact] = useState({contact:"",img: "",display: ""})
   //const myName = "matan";
   const [contacts, setContacts] = useState(getContactsByName(myName))
   const [contactsList, setContactsList] = useState(contacts);
   const userData = getUserData(myName);
   let keys = Object.keys(contactsList)
   function onSubmit(username){
-    //TODO- maybe check if new contact exists. and alert if error
+    console.log(username in contacts)
+    console.log( myName === username)
+    console.log(!(isExist(username)))
     if (username in contacts || myName === username || !(isExist(username))) {
       return false;
     }
     let temp = contacts;
+    console.log(contacts)
     temp[username] = [];
     setContacts({...temp});
+    setContactsList({...temp});
+    console.log(contacts)
     return true;
   }
   
@@ -41,6 +46,8 @@ const Chat = () => {
       return 'Video Message';
     } else if (message.type =='file') {
       return 'File Message';
+    } else if (message.type =='geo') {
+      return 'Location Message';
     }
     return message.data;
   }
@@ -64,10 +71,10 @@ const Chat = () => {
     //TODO - when adding contacts should contact be a registered account from hardcoded list?
   const contactList = keys.map((contact, key) => {
     try{
-    return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact, img) => { setCurrentContact({ contact: contact, img: img }) }} img={getUserData(contact).image} key={key} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
+    return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
     }
     catch(error) {
-      return <ContactDetails name={contact} isClicked={currentContact.contact === contact} onClick={(contact, img) => { setCurrentContact({ contact: contact, img: img }) }} img={getUserData(contact).image} key={key} time={null}>{''}</ContactDetails>
+      return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} time={null}>{''}</ContactDetails>
     }
   });
 
@@ -89,7 +96,7 @@ const Chat = () => {
             <div className="d-flex flex-column h-100">
               <UserDeatils onsubmit={onSubmit} img={userData.image}>
                 {" "}
-                {myName}{" "}
+                {userData.display}
               </UserDeatils>
               <div className="searchBar">
                   <form class="form-inline">

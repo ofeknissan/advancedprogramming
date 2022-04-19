@@ -6,6 +6,8 @@ import CurrentContactDetails from "../CurrentContactDetails/CurrentContactDetail
 import ImageMessage from "../ImageMessage/ImageMessage";
 import VideoMessage from "../VideoMessage/VideoMessage";
 import FileMessage from "../FileMessage/FileMessage"
+import GeoMessage from "../GeoMessage/GeoMessage"
+
 const ContactChat = (props) => {
   const contactId = props.contactId;
   const messages = useRef(null);
@@ -25,7 +27,7 @@ const ContactChat = (props) => {
     <div className="flex-grow-1 d-flex flex-column">
       <CurrentContactDetails img={props.currentContact.img}>
         {" "}
-        {props.currentContact.contact}{" "}
+        {props.currentContact.display}{" "}
       </CurrentContactDetails>
       <div ref={messages} className="flex-grow-1 overflow-chat overflow-auto">
         <div
@@ -61,6 +63,12 @@ const ContactChat = (props) => {
                 <FileMessage time={message.time} isSender={message.isLeft} key={key}>
                   {message.data}
                 </FileMessage>
+              );
+            } else if(message.type == "geo") {
+              return (
+                <GeoMessage time={message.time} isSender={message.isLeft} key={key}>
+                  {message.data}
+                </GeoMessage>
               );
             }
           })}

@@ -14,10 +14,6 @@
 }
 
 
-.left-point{
-    
-}
-
 .message-time{
     color: rgb(0, 0, 0);
     font-size: 10px;
@@ -27,10 +23,5 @@
     max-width: 50%;
 }
 
-.img-message {
-    width: 200px;
-}
 
-.message-img {
-    width: 500px;
-}
+
