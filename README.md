@@ -37,13 +37,11 @@ Chatting Platform
 
 * Login to: ``` Username: matan Password: A123123 ```
 * Users in the hardcoded list:
-| Username  | Password |
-| ------------- | ------------- |
-| ofek | A123123 |
-| Name     | Character |
-| ---      | ---       |
-| Backtick | `         |
-| Pipe     | \|        |
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 
 
