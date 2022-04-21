@@ -40,6 +40,11 @@ Chatting Platform
 | Username  | Password |
 | ------------- | ------------- |
 | ofek | A123123 |
+| Name     | Character |
+| ---      | ---       |
+| Backtick | `         |
+| Pipe     | \|        |
+
 
 
 ### Bonus features
