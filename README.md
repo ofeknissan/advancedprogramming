@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200"  src="https://i.imgur.com/u54eVyj.png%22%3E
+  <img width="200"  src="https://i.imgur.com/u54eVyj.png" />
 </p>
 
 # Star Wars Chat
