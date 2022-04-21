@@ -94,11 +94,11 @@ const Chat = () => {
                 {userData.display}
               </UserDeatils>
               <div className="searchBar">
-                  <form class="form-inline">
+                  <form className="form-inline">
                     <input
                       className="form-control mr-sm-2 search-bar"
                       type="search"
-                      placeholder="Search Contact"
+                      placeholder="Search Contact By Username"
                       aria-label="Search"
                       onChange={doSearch}
                     />

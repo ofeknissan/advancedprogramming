@@ -10,6 +10,7 @@ const Form = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setdisplayName] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
   const [imageUpload, setImageUpload] = useState(false)
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
@@ -21,7 +22,7 @@ const Form = (props) => {
     if (props.signIn) {
       var { message, userData } = submitSignIn(name, password);
     } else {
-      var { message, userData } = submitSignUp(name, password, displayName, file);
+      var { message, userData } = submitSignUp(name, password, confirmPass, displayName, file);
     }
     if (userData == "") {
       setError(message);
@@ -33,13 +34,11 @@ const Form = (props) => {
 
   const fileHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.files[0])
     setFile(URL.createObjectURL(e.target.files[0]));
   }
 
   useEffect(() => {
     if (loggedIn) {
-      console.log(user)
       return navigate("/chat?name=" + user);
     }
   }, [loggedIn]);
@@ -70,7 +69,7 @@ const Form = (props) => {
             >
               Password
             </label>
-            {!props.isLogin && <AuthPop />}
+            {!props.signIn && <AuthPop />}
           </div>
           <input
             type="password"
@@ -84,7 +83,7 @@ const Form = (props) => {
           />
         </div>
         {!props.signIn && (<SignupAdditionToForm
-            displayName={displayName} setdisplayName={setdisplayName} onImage={fileHandler}>
+            displayName={displayName} setdisplayName={setdisplayName} onImage={fileHandler} confirmPass={confirmPass} setConfirmPass={setConfirmPass}>
           </SignupAdditionToForm>)}
         <div className="button-input">
           <button

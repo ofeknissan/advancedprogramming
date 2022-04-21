@@ -34,7 +34,7 @@ const ImageMessage = (props) => {
         <div
           className="modal fade"
           id={id}
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >

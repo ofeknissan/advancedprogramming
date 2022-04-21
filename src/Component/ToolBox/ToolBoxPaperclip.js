@@ -17,7 +17,6 @@ const ToolBoxPaperclip = (props) => {
   const [getHeader, setHeader] = useState("");
 
   function onMenuSelect(eventKey) {
-    console.log(eventKey)
     if(eventKey == 1) {
       handleShowAudioModal();
     } else if(eventKey==2) {
@@ -91,7 +90,7 @@ const ToolBoxPaperclip = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-film"
+              classname="bi bi-film"
               viewBox="0 0 16 16"
             >
               <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z" />
@@ -104,7 +103,7 @@ const ToolBoxPaperclip = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-file-earmark"
+              classname="bi bi-file-earmark"
               viewBox="0 0 16 16"
             >
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
@@ -117,7 +116,7 @@ const ToolBoxPaperclip = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-geo-alt"
+              classname="bi bi-geo-alt"
               viewBox="0 0 16 16"
             >
               <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />

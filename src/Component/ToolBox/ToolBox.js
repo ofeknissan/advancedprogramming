@@ -12,7 +12,6 @@ const ToolBox = (props) => {
       <div className="p-2 flex-grow-1 ">
         <form onSubmit={(e) => {
           e.preventDefault();
-          console.log(message.current.value);
           if(message.current.value === "") {
             return;
           }

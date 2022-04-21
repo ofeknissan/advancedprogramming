@@ -7,7 +7,6 @@ const ImageModal = (props) => {
   const fileHandler = (e) => {
     e.preventDefault();
     let fileType = file["type"];
-    console.log(fileType)
     if (fileType.indexOf("image") === 0) {
       fileType = "image";
     } else if (fileType.indexOf("video") === 0) {
