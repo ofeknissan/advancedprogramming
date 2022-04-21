@@ -3,47 +3,47 @@ import {addNewToContacts} from "./userMessages";
 const errorMsg = ["", "Please fill all required fields!", "Wrong username or password!", "Password does not meet the requirements!", "Username already taken!", "Passwords do not match!"]
 const userData = new Map();
 userData.set("ofek", {
-  password: "1234",
+  password: "A123123",
   display: "ofek",
   image: "./Images/user1.png",
 });
 userData.set("tamir", {
-  password: "12345",
+  password: "A123123",
   display: "tamir",
   image: "./Images/user2.png",
 });
 userData.set("matan", {
-  password: "11",
+  password: "A123123",
   display: "matan",
   image: "./Images/user3.jpg",
 });
 userData.set("elad", {
-  password: "12345",
+  password: "A123123",
   display: "elad",
   image: "./Images/user4.png",
 });
 userData.set("Neria", {
-  password: "12345",
+  password: "A123123",
   display: "Neria",
   image: "./Images/user4.png",
 });
 userData.set("yossi", {
-  password: "12345",
+  password: "A123123",
   display: "yossi",
   image: "./Images/user4.png",
 });
 userData.set("dina", {
-  password: "12345",
+  password: "A123123",
   display: "dina",
   image: "./Images/user4.png",
 });
 userData.set("roni", {
-  password: "123",
+  password: "A123123",
   display: "roni",
   image: "./Images/user4.png",
 });
 userData.set("Nellbi", {
-  password: "123",
+  password: "A123123",
   display: "Nellbi",
   image: "./Images/user1.png",
 });
