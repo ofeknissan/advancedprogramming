@@ -10,6 +10,7 @@ const Signup = () => {
     <div className="fullPage">
       <video className="signUpVideo"
         playsInline="playsinline"
+        poster="/Images/Poster.png"
         autoPlay="autoplay"
         muted="muted"
         loop="loop"

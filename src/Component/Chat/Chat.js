@@ -22,18 +22,13 @@ const Chat = () => {
   const userData = getUserData(myName);
   let keys = Object.keys(contactsList)
   function onSubmit(username){
-    console.log(username in contacts)
-    console.log( myName === username)
-    console.log(!(isExist(username)))
     if (username in contacts || myName === username || !(isExist(username))) {
       return false;
     }
     let temp = contacts;
-    console.log(contacts)
     temp[username] = [];
     setContacts({...temp});
     setContactsList({...temp});
-    console.log(contacts)
     return true;
   }
   

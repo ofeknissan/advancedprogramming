@@ -19,10 +19,16 @@ const ContactChat = (props) => {
   if (props.isDefault) {
     return (
       <div className="flex-grow-1 default-contact">
-        {" "}
+        <br/>
+        <center>
+        <h2 className="text-light">Welcome to Star Wars Chat</h2>
+        <br/>
+        <img className="default-image" src="/images/darth-vader-face.png"/>
+        </center>
       </div>
     );
   }
+  console.log(props.messages);
   return (
     <div className="flex-grow-1 d-flex flex-column">
       <CurrentContactDetails img={props.currentContact.img}>

@@ -13,6 +13,7 @@ const SignIn = () => {
   return (
     <div className="fullPage">
       <video className="signInVideo"
+        poster="/Images/Poster.png"
         playsInline="playsinline"
         autoPlay="autoplay"
         muted="muted"
