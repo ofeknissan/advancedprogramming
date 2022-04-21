@@ -35,7 +35,12 @@ Chatting Platform
 
 ### How to test the chatting system
 
-Login to: ``` Username: matan Password: 11 ```
+* Login to: ``` Username: matan Password: A123123 ```
+* Users in the hardcoded list:
+| Username  | Password |
+| ------------- | ------------- |
+| ofek | A123123 |
+
 
 ### Bonus features
                          
