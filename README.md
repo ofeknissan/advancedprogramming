@@ -1,10 +1,20 @@
+<p align="center">
+  <img width="200"  src="https://i.imgur.com/u54eVyj.png%22%3E
+</p>
+
 # Star Wars Chat
 
 Chat Platform.
 
 ## Description
 
-A web client coded with React.
+* A web client coded with JavaScript / Html / CSS.
+* Using React framework
+
+## Authors
+
+* Tamir Yashin  213335094
+* Ofek  Nissan  325048015
 
 ## Getting Started
 
@@ -23,9 +33,14 @@ A web client coded with React.
 
 * npm start
 
-## Authors
+### How to test the chatting system
 
-Contributors names and contact info
+Login to: ``` Username: matan Password: 11 ```
 
-ex. Tamir Yashin  213335094
-ex. Ofek  Nissan  325048015
+### Bonus features
+                         
+* chat window:
+  * emoji picker - using the emoji button next to new message box
+  * send location in chat - using the paperclip button and pressing on the location icon
+  * send file in chat - using the paperclip button and pressing on the file icon
+  * image preview - clicking on the contact image above the selected chat (after selecting a contact to chat with)
