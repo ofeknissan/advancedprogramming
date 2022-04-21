@@ -47,39 +47,39 @@ Chatting Platform
     </thead>
     <tbody>
         <tr>
-            <td>"ofek"</td>
+            <td>ofek</td>
           <td>A123123</td>
         </tr>
         <tr>
-            <td>"tamir"</td>
+            <td>tamir</td>
             <td>A123123</td>
         </tr>
        <tr>
-            <td>"matan"</td>
+            <td>matan</td>
             <td>A123123</td>
         </tr>
         <tr>
-            <td>"elad"</td>
+            <td>elad</td>
             <td>A123123</td>
         </tr>
       <tr>
-            <td>"Neria"</td>
+            <td>Neria</td>
             <td>A123123</td>
         </tr>
         <tr>
-            <td>"yossi"</td>
+            <td>yossi</td>
             <td>A123123</td>
         </tr>
        <tr>
-            <td>"dina"</td>
+            <td>dina</td>
             <td>A123123</td>
         </tr>
         <tr>
-            <td>"roni"</td>
+            <td>roni</td>
             <td>A123123</td>
         </tr>
        <tr>
-            <td>"Nellbi"</td>
+            <td>Nellbi</td>
             <td>A123123</td>
         </tr>
     </tbody>
