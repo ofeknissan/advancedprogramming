@@ -4,11 +4,11 @@
 
 # Star Wars Chat
 
-Chat Platform.
+Chatting Platform
 
 ## Description
 
-* A web client coded with JavaScript / Html / CSS.
+* A web client coded with JavaScript / Html / CSS
 * Using React framework
 
 ## Authors
