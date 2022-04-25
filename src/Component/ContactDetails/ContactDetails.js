@@ -2,6 +2,8 @@ import React from 'react'
 import "./ContactDetails.css"
 import {convertLastTime} from "../../Util/TimeCompute"
 const ContactDetails = (props) => {
+  console.log(props.time)
+  console.log(props.hour)
   return (
     <div
       onClick={() => {
@@ -19,6 +21,7 @@ const ContactDetails = (props) => {
           {props.display} {props.time != null && <h6 className="ms-auto time-ago">{convertLastTime(props.time)}</h6>}
         </div>
         <div className="lastMessage">{props.children}</div>
+        <h6 className="ms-auto time-ago">{props.hour}</h6>
       </div>
     </div>
   );

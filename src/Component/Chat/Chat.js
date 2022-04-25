@@ -59,13 +59,14 @@ const Chat = () => {
       hour = "0" + String(hour);
     }
     time = String(hour) + ":" + String(minute)
-    contacts[currentContact.contact].push(new Message(message, time, format, false, Math.floor(todayDate.getTime()/1000)));
+    var date = todayDate.getDate() + '-' + (todayDate.getMonth()+1) + '-' +  todayDate.getFullYear();
+    contacts[currentContact.contact].push(new Message(message, time, format, false, Math.floor(todayDate.getTime()/1000),date));
     setContacts({...contacts});
   }
 
   const contactList = keys.map((contact, key) => {
     try{
-    return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
+    return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} hour={ contacts[contact].slice(-1)[0].date + " " + contacts[contact].slice(-1)[0].time} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
     }
     catch(error) {
       return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} time={null}>{''}</ContactDetails>
