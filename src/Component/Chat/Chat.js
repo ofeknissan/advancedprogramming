@@ -63,7 +63,6 @@ const Chat = () => {
     setContacts({...contacts});
   }
 
-    //TODO - when adding contacts should contact be a registered account from hardcoded list?
   const contactList = keys.map((contact, key) => {
     try{
     return <ContactDetails name={contact} display={getUserData(contact).display} isClicked={currentContact.contact === contact} onClick={(contact, img, display) => { setCurrentContact({ contact: contact, img: img, display: display }) }} img={getUserData(contact).image} key={key} time={contacts[contact].slice(-1)[0].seconds}>{last_message(contacts[contact].slice(-1)[0])}</ContactDetails>
@@ -94,7 +93,7 @@ const Chat = () => {
                 {userData.display}
               </UserDeatils>
               <div className="searchBar">
-                  <form className="form-inline">
+                  <form className="form-inline" onSubmit={(event) => { event.preventDefault(); }}>
                     <input
                       className="form-control mr-sm-2 search-bar"
                       type="search"
