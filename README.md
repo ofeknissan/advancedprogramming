@@ -27,6 +27,7 @@ Chatting Platform
 ### Installing
 
 * git clone https://github.com/ofeknissan/advancedprogramming.git
+* cd advancedprogramming
 * npm install
 
 ### Executing program
