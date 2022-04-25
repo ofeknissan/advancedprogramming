@@ -18,6 +18,7 @@ const ImageModal = (props) => {
       fileType = "file";
     }
     props.addMessage(URL.createObjectURL(file), fileType);
+    setFile(null);
     props.handleClose();
   };
 
@@ -25,7 +26,7 @@ const ImageModal = (props) => {
     <>
       <Modal
         show={props.show}
-        onHide={props.handleClose}
+        onHide={()=>{setFile(null); props.handleClose();}}
         backdrop="static"
         keyboard={false}
         centered
