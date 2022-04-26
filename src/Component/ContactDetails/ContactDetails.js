@@ -2,8 +2,6 @@ import React from 'react'
 import "./ContactDetails.css"
 import {convertLastTime} from "../../Util/TimeCompute"
 const ContactDetails = (props) => {
-  console.log(props.time)
-  console.log(props.hour)
   return (
     <div
       onClick={() => {
