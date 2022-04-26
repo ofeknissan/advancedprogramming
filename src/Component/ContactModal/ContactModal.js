@@ -5,11 +5,13 @@ import Modal from "react-bootstrap/Modal";
 function ContactModal(props) {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false)
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [contactName, setContact] = useState("");
   const onSubmit = (event) => {
     event.preventDefault();
+      if (contactName === "") {
+        return;
+      }
       const flag = props.onsubmit(contactName);
       if(flag){
       handleClose();
@@ -18,6 +20,7 @@ function ContactModal(props) {
         setError(true);
     }
   };
+  const handleClose = () => {setShow(false); setError(false)};
   return (
     <>
       <button
@@ -53,7 +56,7 @@ function ContactModal(props) {
                 type="text"
                 className="form-control"
                 id="contact-name"
-                placeholder="Contace Username"
+                placeholder="Contact Username"
                 value={contactName}
                 onChange={(e) => {
                   setContact(e.target.value);
